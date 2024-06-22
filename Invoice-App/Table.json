@@ -1,0 +1,11 @@
+{
+  "type":"Quotation",
+  "name":"DD",
+  "colCount":3,
+  "columns":[
+    ["Sr. No.","Serial"],
+    ["Description","Integer"],
+    ["Ghu","Integer"],
+    ],
+  "rows":[[], [], []]
+}

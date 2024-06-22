@@ -1,0 +1,127 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Arial', Sans-Serif;
+  /*border:1px solid red;*/
+}
+body {
+  width: 100vw;
+}
+#editor {
+  width: 100vw;
+  height: 100vh;
+  padding: 10px 10px 2rem 10px;
+}
+#add-row-btn{
+  margin-bottom: 4rem;
+}
+#add-tbl-btn {
+  padding: 20px;
+  font-size: 1rem;
+  border-radius: 15px;
+  background-color: #f1f6ff;
+  border: 2px solid #5ebaff;
+  color: #000534;
+  transition: 0.2s;
+  display: flex;
+  align-items: center;
+}
+#add-tbl-btn:hover {
+  transform: scale(0.9);
+}
+#close-table-form-btn{
+  transform: ;
+}
+#close-table-form-btn:hover{
+  background-color: #d5d5d5;
+}
+#overlay {
+  width:100vw;
+  height: 100vh;
+  position: fixed;
+  top:0;
+  left:0;
+  background-color: rgba(0,0,0,0.5);
+  display: none;
+  justify-content: center;
+  align-items: center!important;
+  transition: 0.3s linear;
+  z-index: 3;
+}
+#table-details-form {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  margin:1rem;
+  animation: popup 0.15s linear 1;
+}
+#table-details-form input, select, button {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  margin: 5px;
+  background-color: #efefef;
+  outline: none;
+}
+#table-details-form input[type=number] {
+  max-width: 150px;
+}
+#editor table{
+  max-width:500px;
+  width:100%;
+  overflow-x: auto;
+}
+table, th, td{
+  border:1px solid black;
+  border-collapse: collapse;
+  padding:5px;
+}
+table, th{
+  border-radius: 10px;
+}
+#editor #table-editor{
+  max-width:700px ;
+  overflow: auto;
+}
+
+/*++++++++++bottom-navbar+++++++++*/
+#navbar{
+  width: 100%;
+  background-color: #f2f8ff;
+  position: fixed;
+  bottom:0;
+  left: 0;
+  box-shadow: 0 2px 10px #c2c2c2;
+  height: 50px;
+}
+
+#navbar button{
+  width:100%;
+  height: auto;
+  border-radius: 0px;
+}
+
+/*+++++++preview+++++*/
+#preview{
+  width: 100vw;
+  min-height: 100vh;
+  background-color:#fff;
+  display: none;
+}
+
+
+@keyframes popup {
+  0% {
+    transform: scale(0.3);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+

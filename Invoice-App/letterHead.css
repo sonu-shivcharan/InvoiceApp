@@ -1,0 +1,169 @@
+:root {
+  --primary-color: #fc7e12;
+}
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap');
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  border: 0px solid red;
+}
+
+/*****Header*****/
+
+#header>div>h1 {
+  width: 100%;
+  font-size: 0.66cm;
+  font-weight: 700;
+  text-align: left;
+  color: #fff;
+  background-color: var(--primary-color);
+  padding: 10px 10px 10px 50px;
+  margin-left: -38px;
+  margin-right: 50px;
+  border-radius: 0;
+}
+
+
+#details>li {
+  color: #1d6ff4;
+  display: flex;
+  align-items: center;
+  font-size: 10px;
+}
+.icon {
+  width: 20px;
+  padding: 3px;
+  margin: 3px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+a {
+  text-decoration: none;
+  color: #1d6ff4;
+}
+.underline {
+  width: 100%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border: none;
+}
+#signature>img {
+  width: 100px;
+  margin:;
+}
+/*******qr***/
+#qr-container {
+  margin-top: -50px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#review-qr-code {
+  width: 100px;
+  height: 100px;
+  border: 5px solid #0ea62f;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+#review-qr-code>img {
+  width: 100%;
+  height: 100%;
+}
+.qr-caption>a {
+  color: #1ab4ff;
+}
+
+
+#preview{
+  width:21cm;
+  min-height: 100vh;
+  overflow:auto;
+}
+
+.A4 {
+  position: relative;
+  margin: auto;
+  text-align: center;
+  width: 21cm;
+  height: auto;
+  border: 0px solid black;
+  padding: 1cm 1.5cm;
+  position: relative;
+  overflow: hidden;
+}
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+#header>div {
+  padding: 0.5cm 1cm 0.5cm 1cm;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#date {
+  font-weight: bold;
+  margin-left: 18px;
+}
+/* table */
+#preview table, #preview th,#preview td {
+  border: 1px solid black;
+  padding: 8px;
+  font-size: 95%;
+}
+td {
+  text-align: left;
+}
+#preview table {
+  width:  95%;
+  margin: 0.2cm auto;
+  border-collapse: collapse;
+}
+#preview table * {
+  font-size: 13px;
+}
+.amount {
+  text-align: right;
+}
+.sender {
+  text-align: right;
+  padding: 20px;
+}
+#reciever {
+  text-align: left;
+  padding: 20px
+}
+#reciever>h3 {
+  font-size: 15px;
+}
+#reciever p {
+  font-size: 12px;
+}
+.right {
+  text-align: right;
+  width: 18%;
+}
+.center {
+  text-align: center
+}
+
+h4 {
+  font-size: 13px;
+}
+.left {
+  padding-left: 1.5cm!important;
+}
+@media print {
+  @page {
+    margin:1cm 0cm;
+  }
+  #navbar{
+    display: none;
+  }
+}
