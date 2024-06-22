@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="letterHead.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&wght@400;500;600&display=swap" rel="stylesheet">
+
+  <title></title>
+</head>
+
+<body>
+
+  <div id="editor">
+    <button id="add-tbl-btn"> <span style="font-size:2rem; font-weight:400; line-height:1.2rem;">+</span> Add Table
+    </button>
+    <div id="overlay">
+      <form id="table-details-form">
+        <div class="flex justify-between items-center">
+          <h2>Add new table</h2>
+          <span id="close-table-form-btn">
+            <img src="close.svg">
+          </span>
+        </div>
+        <select>
+          <option value="null" selected="true" disabled="true">Select Table Type</option>
+          <option value="Quotation">Quotation</option>
+          <option value="Invoice">Invoice</option>
+        </select>
+        <input type="text" id="table-name" placeholder="Table Name" required="true" />
+        <input type="number" id="col-count" placeholder="Column count" required="true" />
+        <br>
+        <button id="add-tbl-form-btn">Add Table</button>
+      </form>
+    </div>
+  </div>
+  <div id="preview">
+    <div class="A4">
+      <div class="page">
+        <header id="header">
+          <div>
+            <h1> Professional and Qualified<br /> Electricals
+            </h1>
+
+            <ul id="details">
+              <li><img src="./material-icons/place.png" class="icon"></img>Near Datta Mandir, Wakad, Pune - 411057</li>
+              <li> <img src="./material-icons/call.png" class="icon"></img><a href="tel:+918010096692">+918010096692</a>
+              </li>
+              <li><img src="./material-icons/email.png" class="icon"></img>
+                <a href="mailto:pshivcharan@gmail.com">pshivcharan@gmail.com</a>
+              </li>
+              <li><img src="./material-icons/public.png" class="icon"></img><a
+                  href="https://proqelectricals.business.site">https://proqelectricals.business.site</a></li>
+            </ul>
+          </div>
+          <hr class="underline" />
+        </header>
+        <section id="first-section">
+          <h2><u>Labour Charges</u></h2>
+          <div id="date" style="font-size:12px" class="text-left">Date : 17/04/2023</div>
+          <div id="reciever">
+            <h4>To,<br />
+              Mr. Dhananjay Kalate</h4>
+            <p>
+              Dange Chowk, Pune.<br />
+            </p>
+          </div>
+
+
+          <table>
+
+          </table>
+
+          <h4 class="text-center">Total Amount in Words : Four Thousand Nine Hundred and Fifty Only. </h4>
+        </section>
+
+
+        <div class="sender">
+          <h4>Yours Faithfully,<br />
+            <div id="signature">
+              <img src="./Signature/sign.png"></img>
+            </div>
+            Prem Shivcharan
+          </h4>
+        </div>
+
+      </div>
+      <div id="qr-container">
+        <div id="review-qr-code">
+          <img src="./material-icons/google-review.png"></img>
+
+        </div>
+
+        <h6 class="qr-caption">Scan to post a review to our profile on Google
+          <br />
+          or Simply click here <a href="https://g.page/r/CfauNIdO7DuaEBI/review">https://g.page/r/CfauNIdO7DuaEBI/review
+          </a>
+        </h6>
+      </div>
+    </div>
+  </div>
+
+  <div id="navbar" class="flex justify-around items-center">
+    <button id="editor-btn">Editor</button>
+    <button id="preview-btn">Preview</button>
+  </div>
+  <script type="module" src="./src/index.js">
+  </script>
+</body>
+
+</html>

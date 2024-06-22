@@ -1,4 +1,4 @@
-import Table from '/src/table.js'
+import Table from './Table.js'
 function deserializeTable(jsonString) {
   const obj = JSON.parse(jsonString);
   const table = new Table(obj.type, obj.name, obj.colCount);

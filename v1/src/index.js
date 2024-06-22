@@ -1,9 +1,9 @@
-import Table from '/src/Table.js';
-import serializeTable from '/src/serializeTable.js';
-import deserializeTable from '/src/deserializeTable.js';
+import Table from './Table.js';
+import serializeTable from './serializeTable.js';
+import deserializeTable from './deserializeTable.js';
 
-const selectElem = (elem)=>document.querySelector(elem);
-const createElem = (tagname)=>document.createElement(tagname);
+const selectElem = (elem) => document.querySelector(elem);
+const createElem = (tagname) => document.createElement(tagname);
 const tableDetailsForm = selectElem("#table-details-form");
 const editor = selectElem("#editor");
 const preview = selectElem("#preview");
@@ -13,15 +13,15 @@ let closebtn;
 const previewInEditor = createElem("div");
 previewInEditor.id = "table-editor"
 let tables = [];
-window.onload = ()=> { 
+window.onload = () => {
   const date = document.getElementById("date");
-  date.innerHTML=`Date : ${new Date().toLocaleString().slice(0,10)}`;
+  date.innerHTML = `Date : ${new Date().toLocaleString().slice(0, 10)}`;
   const prevTable = localStorage.getItem("table");
   if (prevTable) {
     tables[0] = deserializeTable(prevTable);
     renderEditorTable(tables[0])
   }
-  
+
 }
 
 const overlay = selectElem("#overlay");
@@ -76,7 +76,7 @@ function getDataTypesForCols(newTable) {
   submitBtn.innerHTML = "Add";
   form.appendChild(submitBtn)
   editor.appendChild(form)
-  form.addEventListener('submit', (e)=> {
+  form.addEventListener('submit', (e) => {
     e.preventDefault();
     handleColumnDataType(form, newTable);
     e.target.reset();
@@ -134,8 +134,9 @@ function addNewRow() {
   }
   const saveBtn = createElem('td');
   saveBtn.innerText = "Save";
-  saveBtn.addEventListener("click", (event)=> {
-    handleTableDataInput(event, tables[0])});
+  saveBtn.addEventListener("click", (event) => {
+    handleTableDataInput(event, tables[0])
+  });
   newRow.appendChild(saveBtn)
   const editorTable = previewInEditor.getElementsByTagName('table')[0];
   const tableBody = editorTable.lastChild;
@@ -146,7 +147,7 @@ function handleTableDataInput(event, table) {
   let row = target.parentElement;
   let cells = row.cells;
   let values = [];
-  for (let i = 0; i < cells.length-1; i++) {
+  for (let i = 0; i < cells.length - 1; i++) {
     values.push(cells[i].firstChild.value);
   }
   table.addNewRow(row.rowIndex, values);
@@ -160,7 +161,7 @@ function renderTableInPreview(table) {
     rows
   } = table;
   const previewTable = preview.getElementsByTagName("table")[0];
-  previewTable.innerHTML=""
+  previewTable.innerHTML = ""
   const tableHead = createElem("thead");
   const newRow = createElem("tr");
   for (let i = 0; i <= colCount; i++) {
@@ -169,8 +170,8 @@ function renderTableInPreview(table) {
       th.innerText = "Sr No";
       th.setAttribute("data-type", "Serial");
     } else {
-      th.innerText = columns[i-1][0];
-      th.setAttribute("data-type", columns[i-1][1]);
+      th.innerText = columns[i - 1][0];
+      th.setAttribute("data-type", columns[i - 1][1]);
     }
     newRow.appendChild(th);
   }
@@ -186,22 +187,22 @@ function renderTableRowsInPreview(previewTable) {
   const tableBody = previewTable.querySelector("tbody");
   tableBody.innerHTML = "";
   const tableRows = tables[0].rows;
-  let numDataTypeIdx =-1;
+  let numDataTypeIdx = -1;
   for (let i = 0; i < tableRows.size; i++) {
-    const rowData = tableRows.get(i+1);
+    const rowData = tableRows.get(i + 1);
     const newRow = createElem("tr");
     {
       const td = createElem("td");
       td.classList.add("text-center");
-      td.innerText = `${i+1})`;
+      td.innerText = `${i + 1})`;
       newRow.appendChild(td)
     }
     for (let j = 0; j < rowData.length; j++) {
       let className = ["text-center"];
       const td = createElem("td");
-      
+
       const colDataType = tables[0].columns[j][1];
-        td.innerText = rowData[j];
+      td.innerText = rowData[j];
       if (colDataType == "Number") {
         className = ["text-right"];
         numDataTypeIdx = i;
@@ -209,9 +210,9 @@ function renderTableRowsInPreview(previewTable) {
       } else if (colDataType == "String") {
         className = ["text-left"];
       }
-       
-      
-      
+
+
+
       td.classList.add(className)
       newRow.appendChild(td);
       console.log(rowData[j])
@@ -219,35 +220,35 @@ function renderTableRowsInPreview(previewTable) {
     tableBody.append(newRow)
   }
   const newRow = createElem("tr")
-      for(let i=0; i<2; i++){
-      const td = createElem("td");
-      if(i==0){
-        td.setAttribute("colspan",tables[0].colCount);
-        td.innerHTML= "Total"
-      } else{
-      td.innerHTML=`&#8377;${tables[0].total(numDataTypeIdx)}/-`;
-      }
-  td.classList.add("text-center", "font-bold")
-
-      newRow.appendChild(td);
+  for (let i = 0; i < 2; i++) {
+    const td = createElem("td");
+    if (i == 0) {
+      td.setAttribute("colspan", tables[0].colCount);
+      td.innerHTML = "Total"
+    } else {
+      td.innerHTML = `&#8377;${tables[0].total(numDataTypeIdx)}/-`;
     }
-tableBody.appendChild(newRow)
+    td.classList.add("text-center", "font-bold")
+
+    newRow.appendChild(td);
+  }
+  tableBody.appendChild(newRow)
   console.log(tableBody)
   localStorage.setItem("table", serializeTable(tables[0]))
 }
 
 const editorBtn = selectElem("#editor-btn");
 const previewBtn = selectElem("#preview-btn");
-previewBtn.addEventListener("click", ()=> {
+previewBtn.addEventListener("click", () => {
   displayElement(preview, editor);
   const header = document.getElementById("header");
   const firstSection = document.getElementById("first-section");
-  firstSection.style.marginTop = header.clientHeight-20+"px";
-  
+  firstSection.style.marginTop = header.clientHeight - 20 + "px";
+
   const previewTable = preview.getElementsByTagName("table")[0];
   renderTableRowsInPreview(previewTable);
 });
-editorBtn.addEventListener("click", ()=> {
+editorBtn.addEventListener("click", () => {
   displayElement(editor, preview);
 });
 function displayElement(elemToDisplay, elemToHide) {

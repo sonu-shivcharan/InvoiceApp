@@ -5,7 +5,7 @@ function serializeTable(table) {
     colCount: table.colCount,
     columns: table.columns,
     rows: Array.from(table.rows.entries()),
-    totalAmount : Number(table.totalAmount).toFixed(2)
+    totalAmount: Number(table.totalAmount).toFixed(2)
   });
 }
 
